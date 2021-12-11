@@ -19,4 +19,5 @@ Below automations are split into 2 parts, the UI and backend part.
 ## Functionality
 - Volume fading (fade in and fade out)
 
-
+# PROBLEMS need solving before release
+- Many user specific variables are handled as global variable (volume and device id for example). This ain't gonna work if more than one person uses this. Therefore use cookies or pass cur vol into the path itself.
