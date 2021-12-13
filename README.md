@@ -21,6 +21,8 @@ Below automations are split into 2 parts, the UI and Functionality part.
 ## Functionality
 - Volume fading (fade in and fade out)
 
+![Fade in and out](docs/media/fade_in_out.gif)
+
 # PROBLEMS need solving before alpha
 - Many user specific variables are handled as global variable (volume and device id for example). This ain't gonna work if more than one person uses this. Therefore use cookies or pass cur vol into the path itself.
 - Using post instead of using a get function as we should follow REST concepts as much as possible
