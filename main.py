@@ -5,11 +5,13 @@ import os
 from dotenv import load_dotenv
 import math
 import time
+import base64
 
 app = Flask(__name__)
 load_dotenv(".env")
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+SECRET = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode()
 state = 102911
 FADE_GAP = 0.1
 FADE_TIME = 2
@@ -37,7 +39,7 @@ def callback():
         },
         headers={
             # Base64 tokens must not have freegin space
-            "Authorization": "Basic " + "YzgzZTU3YzNjZTZkNGIyZmEzMWU2MWJmMGVkNDc2ODI6MjQyNzMyMWI4NWM2NDA5NDliOTNlZWVmMGIzN2NlZWI=",
+            "Authorization": "Basic " + SECRET,
             "Content-Type": "application/x-www-form-urlencoded"
         }
     )
