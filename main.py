@@ -71,7 +71,7 @@ def fade_up():
     player_id = os.environ.get("player_id")
     counts = FADE_TIME/FADE_GAP
     increment = math.floor((MAX_VOL-cur_vol) / counts)
-    while cur_vol < MAX_VOL:
+    while cur_vol < MAX_VOL and increment != 0:
         cur_vol += increment
         r = requests.put(
             "https://api.spotify.com/v1/me/player/volume",
@@ -96,9 +96,9 @@ def fade_down():
     cur_vol = int(os.environ.get("cur_vol"))
     player_id = os.environ.get("player_id")
     counts = FADE_TIME/FADE_GAP
-    increment = math.floor((cur_vol-MIN_VOL) / counts)
-    while cur_vol > MIN_VOL:
-        cur_vol -= increment
+    decrement = math.floor((cur_vol-MIN_VOL) / counts)
+    while cur_vol > MIN_VOL and decrement != 0:
+        cur_vol -= decrement
         r = requests.put(
             "https://api.spotify.com/v1/me/player/volume",
             params={
