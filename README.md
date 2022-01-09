@@ -5,6 +5,31 @@ After looking more into it, it would seem like fading volumes was not the only f
 
 Seeing this space and I've also been eager to try out Python and learning more about OAuth 2.0, I thought this was a good chance to play around.
 
+# Scrum
+## Volume fading
+### User story
+- As a user, I would want to fade the volume of my spotify device.
+- As a user, I would want to be able to select which spotify device is available for me to fade.
+### Done condition
+- User is able to login to their account
+- User is able to get their active device
+- User is able to fade volume up for a specific device
+- User is albe to fade volume down for a specific device
+
+# API Endpoints
+|Method|Endpoints|Description|
+|-|-|-|
+|GET|/|Root page which links to other functions (Fading only for now)|
+|GET|/auth|Redirect to spotify Oauth2.0 workflow if login cookie not found or cookie expired.|
+|GET|/auth/callback|Callback endpoint for spotify API OAuth2.0|
+|GET|/devices|List of spotify devices that are available for manipulation|
+|GET|/version|Description information of the app|
+|GET|/volume|Information of volume|
+|POST|/volume|Fade up or down the volume of a specific device|
+
+# Architecture
+![Architecture diagram](docs/media/ohana.png)
+
 # Goal
 The goal of this API is to allow automations for Spotify.  
 Below automations are split into 2 parts, the UI and Functionality part.

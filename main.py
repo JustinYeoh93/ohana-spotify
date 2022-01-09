@@ -53,7 +53,6 @@ def callback():
 @app.get('/devices')
 def devices():
     token = request.cookies.get("access_token")
-    print(token)
     r = requests.get(
         "https://api.spotify.com/v1/me/player",
         headers={
